@@ -13,6 +13,9 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
  * `cdk diff`        compare deployed stack with current state
  * `cdk synth`       emits the synthesized CloudFormation template
 
+steps
+- `npm i`
+- `cdk deploy`
 
 test lambda using:
 ```json
@@ -23,5 +26,16 @@ test lambda using:
     "movieName": "The Shawshank Redemption",
     "ratings": 9.1
   }
+}
+```
+
+test api gateway using:
+
+POST method:
+```json
+{
+  "releasedYear": "1972",
+  "movieName": "The Godfather",
+  "ratings": 9.0
 }
 ```

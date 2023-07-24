@@ -34,11 +34,17 @@ export class ServerlessCdkAppStack extends cdk.Stack {
     moviesTable.grantReadWriteData(ServerlessAPIFunction);
     
     //add the API Gateway creation code below
+    const serverlessApi = new apigateway.RestApi(this, "serverless-app-api", {
+      restApiName: "Serverless app API",
+      description: "This service serves as an API for the serverless app.."
+    });
     
     //add the API Gateway lambda integration and method addition code below
+    serverlessApi.root.addMethod("ANY", new apigateway.LambdaIntegration(ServerlessAPIFunction));
     
     //add code for the APIGateway url output below
-    
-
+    new cdk.CfnOutput(this, "HTTP API URL", {
+      value:  serverlessApi.url ?? "Something went wrong with the deploy",
+    });
   }
 }
