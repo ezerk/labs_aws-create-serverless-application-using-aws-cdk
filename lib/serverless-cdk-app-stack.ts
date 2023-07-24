@@ -16,15 +16,15 @@ export class ServerlessCdkAppStack extends cdk.Stack {
       tableName: `movies-table`,
       partitionKey: { name: 'year', type: dynamodb.AttributeType.STRING },
       sortKey: { name: 'movieName', type: dynamodb.AttributeType.STRING },
-      readCapacity: <readCapacity>,
-      writeCapacity: <writeCapacity>,
+      readCapacity: 2,
+      writeCapacity: 2,
       // removalPolicy: RemovalPolicy.DESTROY,
     });
     
     //code to add lambda function that queries the dynamodb table
     const ServerlessAPIFunction = new lambda.Function(this, 'ServerlessAPIFunction', {
       functionName: `ServerlessAPIFunction`,
-      runtime: <lambdaRuntime>,
+      runtime: lambda.Runtime.NODEJS_14_X,
       handler: 'index.handler',
       environment: { DYNAMODB_TABLE_NAME: moviesTable.tableName },
       code: lambda.Code.fromAsset(path.dirname('./functions/index.js')),

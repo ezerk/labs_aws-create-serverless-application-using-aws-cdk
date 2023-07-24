@@ -12,3 +12,16 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
  * `cdk deploy`      deploy this stack to your default AWS account/region
  * `cdk diff`        compare deployed stack with current state
  * `cdk synth`       emits the synthesized CloudFormation template
+
+
+test lambda using:
+```json
+{
+  "httpMethod": "POST",
+  "body":{
+    "releasedYear": "1994",
+    "movieName": "The Shawshank Redemption",
+    "ratings": 9.1
+  }
+}
+```

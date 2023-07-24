@@ -1,11 +1,7 @@
 const AWS = require('aws-sdk');
 const dynamo = new AWS.DynamoDB.DocumentClient();
 
-/*
 const tableName = process.env.DYNAMODB_TABLE_NAME || 'movies-table';
-insert above code below
-*/
-
 
 exports.handler = async (event, context) => {
     
